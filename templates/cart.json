@@ -1,0 +1,105 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "cart-items": {
+      "type": "main-cart-items",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "174072882321b536bb": {
+      "type": "apps",
+      "blocks": {
+        "plus_shipping_app_block_RDmfqx": {
+          "type": "shopify://apps/plus-shipping/blocks/app-block/dbcc550b-0a73-4f3c-8157-065414292853",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "plus_shipping_app_block_RDmfqx"
+      ],
+      "custom_css": [
+        "#plus-shipping_extension-root {padding: 30px 0;}"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "cart-footer": {
+      "type": "main-cart-footer",
+      "blocks": {
+        "subtotal": {
+          "type": "subtotal",
+          "settings": {}
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "subtotal",
+        "buttons"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "collage_wrmwUJ": {
+      "type": "collage",
+      "blocks": {
+        "image_tbQLmi": {
+          "type": "image",
+          "settings": {}
+        },
+        "product_EgLA9e": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "second_image": false
+          }
+        },
+        "collection_n6Gfrg": {
+          "type": "collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_tbQLmi",
+        "product_EgLA9e",
+        "collection_n6Gfrg"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "マルチメディアコラージュ",
+        "heading_size": "h1",
+        "desktop_layout": "left",
+        "mobile_layout": "column",
+        "card_styles": "product-card-wrapper",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "cart-items",
+    "174072882321b536bb",
+    "cart-footer",
+    "collage_wrmwUJ"
+  ]
+}

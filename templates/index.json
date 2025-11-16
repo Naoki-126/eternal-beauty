@@ -1,0 +1,141 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "脂肪吸引体験者500人の声を集めて作りました！",
+            "text_style": "subtitle"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "美容クリニックでも代用されている安心の<strong>術後圧迫下着</strong>",
+            "heading_size": "h2"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop all",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "text",
+        "heading",
+        "button"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/241124_188.jpg",
+        "image_overlay_opacity": 20,
+        "image_height": "medium",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-4",
+        "image_behavior": "ambient",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": true
+      }
+    },
+    "featured_collection_LkxaAx": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "商品紹介",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "術後圧迫-補正下着",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "outline",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "portrait",
+        "image_shape": "blob",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 60,
+        "padding_bottom": 80
+      }
+    },
+    "image_banner_zBg4EK": {
+      "type": "image-banner",
+      "blocks": {
+        "text_ctkUiR": {
+          "type": "text",
+          "settings": {
+            "text": "Eternal術後下着は、脂肪吸引術後の適切な圧迫することで術後の症状緩和に役立ちます。また、日常生活のお洋服や着こなしにできるだけ邪魔にならないデザイン性も考慮し、脂肪吸引体験者500人のご意見を参考に開発されました。みなさまが少しでも楽にダウンタイムを過ごされ、1日も早く理想のスタイルを手に入れられることをお祈りいたします。",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_ctkUiR"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/LINE_ALBUM___241124_157.jpg",
+        "image_2": "shopify://shop_images/LINE_ALBUM___241124_18.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-4",
+        "image_behavior": "fixed",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": true
+      }
+    },
+    "featured_blog_k3V9xt": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "What’s New !",
+        "heading_size": "h1",
+        "blog": "news",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_image": false,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "featured_collection_LkxaAx",
+    "image_banner_zBg4EK",
+    "featured_blog_k3V9xt"
+  ]
+}
