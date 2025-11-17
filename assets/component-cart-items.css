@@ -215,11 +215,12 @@ cart-remove-button .icon-remove {
   text-transform: uppercase;
 }
 
+/* カスタマイズ
+=========================== */
 .cart-attr__rowArea {
   width: 100%;
   background: #fff;
 }
-
 
 .cart-attr__row {
   max-width: 1000px;
@@ -227,11 +228,17 @@ cart-remove-button .icon-remove {
   padding: 20px 50px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
   gap: 16px;
 }
 
+.cart-attr__row
+.cart-attribute__field {
+  text-align: center;
+}
+
 .cart-attr__custom {
-  padding: 6px;
+  padding: 10px 6px;
 }
 
 @media (max-width: 768px) {
@@ -240,6 +247,12 @@ cart-remove-button .icon-remove {
     padding: 0 16px;
   }
 }
+
+.cart-attr__custom {
+  margin-top: 10px;
+}
+
+/* ここまで */
 
 @media screen and (max-width: 749px) {
   .cart-items,
