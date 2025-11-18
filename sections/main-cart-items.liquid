@@ -459,39 +459,97 @@
 
   <div class="cart-attr__row">
     <p class="cart-attribute__field">
-      <label for="age">ご年齢</label><br>
-      <select id="age" name="attributes[ご年齢]" class="cart-attr__custom" style="border-radius: 6px;" form="cart">
-        <option value="10代"{% if cart.attributes["ご年齢"] == "10代" %} selected{% endif %}>10代</option>
-        <option value="20代"{% if cart.attributes["ご年齢"] == "20代" %} selected{% endif %}>20代</option>
-        <option value="30代"{% if cart.attributes["ご年齢"] == "30代" %} selected{% endif %}>30代</option>
-        <option value="40代"{% if cart.attributes["ご年齢"] == "40代" %} selected{% endif %}>40代</option>
-        <option value="50代"{% if cart.attributes["ご年齢"] == "50代" %} selected{% endif %}>50代</option>
-        <option value="60代以上"{% if cart.attributes["ご年齢"] == "60代以上" %} selected{% endif %}>60代以上</option>
-      </select>
+      <label>ご年齢</label><br>
+      <input type="radio" name="attributes[ご年齢]" value="10代"{% if cart.attributes["ご年齢"] == "10代" %} checked{% endif %} form="cart" > <span>10代</span><br>
+      <input type="radio" name="attributes[ご年齢]" value="20代"{% if cart.attributes["ご年齢"] == "20代" %} checked{% endif %} form="cart" > <span>20代</span><br>
+      <input type="radio" name="attributes[ご年齢]" value="30代"{% if cart.attributes["ご年齢"] == "30代" %} checked{% endif %} form="cart" > <span>30代</span><br>
+      <input type="radio" name="attributes[ご年齢]" value="40代"{% if cart.attributes["ご年齢"] == "40代" %} checked{% endif %} form="cart" > <span>40代</span><br>
+      <input type="radio" name="attributes[ご年齢]" value="50代"{% if cart.attributes["ご年齢"] == "50代" %} checked{% endif %} form="cart" > <span>50代</span><br>
+      <input type="radio" name="attributes[ご年齢]" value="60代以降"{% if cart.attributes["ご年齢"] == "60代以降" %} checked{% endif %} form="cart" > <span>60代以降</span><br>
+      <input type="radio" name="attributes[ご年齢]" value="回答しない"{% if cart.attributes["ご年齢"] == "回答しない" %} checked{% endif %} form="cart" > <span>回答しない</span><br>
     </p>
 
-    <p class="cart-attribute__field">
-      <label for="site">サイトを知ったきっかけ</label><br>
-      <select id="site" name="attributes[サイトを知ったきっかけ]" class="cart-attr__custom" style="border-radius: 6px;" form="cart">
-        <option value="Google検索"{% if cart.attributes["サイトを知ったきっかけ"] == "Google検索" %} selected{% endif %}>Google検索</option>
-        <option value="Yahoo検索"{% if cart.attributes["サイトを知ったきっかけ"] == "Yahoo検索" %} selected{% endif %}>Yahoo検索</option>
-        <option value="インスタ広告"{% if cart.attributes["サイトを知ったきっかけ"] == "インスタ広告" %} selected{% endif %}>インスタ広告</option>
-        <option value="友人の紹介"{% if cart.attributes["サイトを知ったきっかけ"] == "友人の紹介" %} selected{% endif %}>友人の紹介</option>
-        <option value="クリニックの紹介"{% if cart.attributes["サイトを知ったきっかけ"] == "クリニックの紹介" %} selected{% endif %}>クリニックの紹介</option>
-        <option value="その他"{% if cart.attributes["サイトを知ったきっかけ"] == "その他" %} selected{% endif %}>その他</option>
-      </select>
-    </p>
+    <div>
+      <p class="cart-attribute__field">
+        <label for="">サイトを知ったきっかけ</label>
+        {% comment %} <input id="" type="text" name="attributes[サイトを知ったきっかけ]" value="{{ cart.attributes["サイトを知ったきっかけ"] }}"> {% endcomment %}
+      </p>
+      <p class="cart-attribute__field">
+        <input type="hidden" name="attributes[Google検索]" value="No" form="cart" >
+        <input type="checkbox" name="attributes[Google検索]" value="Yes"{% if cart.attributes["Google検索"] == "Yes" %} checked{% endif %} form="cart">
+        <label>Google検索</label>
+      </p>
+      <p class="cart-attribute__field">
+        <input type="hidden" name="attributes[Yahoo検索]" value="No" form="cart" >
+        <input type="checkbox" name="attributes[Yahoo検索]" value="Yes"{% if cart.attributes["Yahoo検索"] == "Yes" %} checked{% endif %} form="cart" >
+        <label>Yahoo検索</label>
+      </p>
+      <p class="cart-attribute__field">
+        <input type="hidden" name="attributes[インスタ広告]" value="No" form="cart" >
+        <input type="checkbox" name="attributes[インスタ広告]" value="Yes"{% if cart.attributes["インスタ広告"] == "Yes" %} checked{% endif %} form="cart" >
+        <label>インスタ広告</label>
+      </p>
+      <p class="cart-attribute__field">
+        <input type="hidden" name="attributes[友人の紹介]" value="No" form="cart" >
+        <input type="checkbox" name="attributes[友人の紹介]" value="Yes"{% if cart.attributes["友人の紹介"] == "Yes" %} checked{% endif %}form="cart" >
+        <label>友人の紹介</label>
+      </p>
+      <p class="cart-attribute__field">
+        <input type="hidden" name="attributes[クリニックの紹介]" value="No" form="cart" >
+        <input type="checkbox" name="attributes[クリニックの紹介]" value="Yes"{% if cart.attributes["クリニックの紹介"] == "Yes" %} checked{% endif %}form="cart" >
+        <label>クリニックの紹介</label>
+      </p>
+      <p class="cart-attribute__field">
+        <input type="hidden" name="attributes[その他]" value="No" form="cart" >
+        <input type="checkbox" name="attributes[その他]" value="Yes"{% if cart.attributes["その他"] == "Yes" %} checked{% endif %} form="cart" >
+        <label>その他</label>
+        </p>
+        <p class="cart-attribute__field">
+          <label for=""></label>
+          <textarea id="" name="attributes[その他]" form="cart" >{{ cart.attributes["その他"] }}</textarea>
+      </p>
+      <p class="cart-attribute__field">
+        <input type="hidden" name="attributes[回答しない]" value="No" form="cart" >
+        <input type="checkbox" name="attributes[回答しない]" value="Yes"{% if cart.attributes["回答しない"] == "Yes" %} checked{% endif %} form="cart" >
+        <label>回答しない</label>
+      </p>
+    </div>
 
-    <p class="cart-attribute__field">
-      <label for="term">使用用途・使用開始時期</label><br>
-      <select id="term" name="attributes[使用用途・使用開始時期]" class="cart-attr__custom" style="border-radius: 6px;" form="cart">
-        <option value="手術後一週間以内"{% if cart.attributes["使用用途・使用開始時期"] == "手術後一週間以内" %} selected{% endif %}>手術後一週間以内</option>
-        <option value="手術後一週間以降"{% if cart.attributes["使用用途・使用開始時期"] == "手術後一週間以降" %} selected{% endif %}>手術後一週間以降</option>
-        <option value="手術後以外・補正"{% if cart.attributes["使用用途・使用開始時期"] == "手術後以外・補正" %} selected{% endif %}>手術後以外・補正</option>
-        <option value="その他"{% if cart.attributes["使用用途・使用開始時期"] == "その他" %} selected{% endif %}>その他</option>
-      </select>
-    </p>
-  </div>
+    <div>
+      <p class="cart-attribute__field">
+        <label for="">使用用途・使用開始時期</label>
+        {% comment %} <input id="" type="text" name="attributes[使用用途・使用開始時期]" value="{{ cart.attributes["使用用途・使用開始時期"] }}"> {% endcomment %}
+      </p>
+      <p class="cart-attribute__field">
+        <input type="hidden" name="attributes[手術後一週間以内]" value="No" form="cart" >
+        <input type="checkbox" name="attributes[手術後一週間以内]" value="Yes"{% if cart.attributes["手術後一週間以内"] == "Yes" %} checked{% endif %} form="cart" >
+        <label>手術後一週間以内</label>
+      </p>
+      <p class="cart-attribute__field">
+        <input type="hidden" name="attributes[手術後一週間以降]" value="No" form="cart" >
+        <input type="checkbox" name="attributes[手術後一週間以降]" value="Yes"{% if cart.attributes["手術後一週間以降"] == "Yes" %} checked{% endif %} form="cart" >
+        <label>手術後一週間以降</label>
+      </p>
+      <p class="cart-attribute__field">
+        <input type="hidden" name="attributes[手術後以外・補正]" value="No" form="cart" >
+        <input type="checkbox" name="attributes[手術後以外・補正]" value="Yes"{% if cart.attributes["手術後以外・補正"] == "Yes" %} checked{% endif %} form="cart" >
+        <label>手術後以外・補正</label>
+      </p>
+      <p class="cart-attribute__field">
+        <input type="hidden" name="attributes[その他]" value="No" form="cart" >
+        <input type="checkbox" name="attributes[その他]" value="Yes"{% if cart.attributes["その他"] == "Yes" %} checked{% endif %} form="cart" >
+        <label>その他</label>
+        </p>
+        <p class="cart-attribute__field">
+          <label for=""></label>
+          <textarea id="" name="attributes[その他]" form="cart" >{{ cart.attributes["その他"] }}</textarea>
+      </p>
+      <p class="cart-attribute__field">
+        <input type="hidden" name="attributes[回答しない]" value="No" form="cart" >
+        <input type="checkbox" name="attributes[回答しない]" value="Yes"{% if cart.attributes["回答しない"] == "Yes" %} checked{% endif %} form="cart" >
+        <label>回答しない</label>
+      </p>
+    </div>
 </div>
 
 
