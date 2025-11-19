@@ -452,16 +452,16 @@
 
     </form>
   </div>
-
 </cart-items>
 
-{% comment %} カスタマイズ {% endcomment %}
+<!-- カスタマイズ -->
+
 <div class="cart-attr__rowArea">
 
   <div class="cart-attr__row">
     <p class="cart-attribute__field">
       <label class="cart-attr__label" >ご年齢</label><br>
-        <input type="radio" name="attributes[ご年齢]" value="10代"{% if cart.attributes["ご年齢"] == "10代" %} checked{% endif %} form="cart" style="margin-top:20px;" > <span>10代</span><br>
+        <input type="radio" name="attributes[ご年齢]" value="10代"{% if cart.attributes["ご年齢"] == "10代" %} checked{% endif %} form="cart" style="margin-top:16px;" > <span>10代</span><br>
         <input type="radio" name="attributes[ご年齢]" value="20代"{% if cart.attributes["ご年齢"] == "20代" %} checked{% endif %} form="cart" > <span>20代</span><br>
         <input type="radio" name="attributes[ご年齢]" value="30代"{% if cart.attributes["ご年齢"] == "30代" %} checked{% endif %} form="cart" > <span>30代</span><br>
         <input type="radio" name="attributes[ご年齢]" value="40代"{% if cart.attributes["ご年齢"] == "40代" %} checked{% endif %} form="cart" > <span>40代</span><br>
@@ -500,15 +500,39 @@
           <input type="checkbox" name="attributes[クリニックの紹介_きっかけ]" value="Yes"{% if cart.attributes["クリニックの紹介_きっかけ"] == "Yes" %} checked{% endif %}form="cart" >
           <label>クリニックの紹介</label>
         </p>
+        <!-- ▼きっかけ：その他 -->
         <p class="cart-attribute__field">
+          <input type="hidden" name="attributes[その他_きっかけ]" value="No" form="cart">
+          <input
+            type="checkbox"
+            id="trigger_trigger"
+            name="attributes[その他_きっかけ]"
+            value="Yes"
+            {% if cart.attributes["その他_きっかけ"] == "Yes" %} checked{% endif %}
+            form="cart"
+          >
+          <label for="trigger_trigger">その他</label>
+        </p>
+
+        <p class="cart-attribute__field">
+          <textarea
+            id="textarea_trigger"
+            name="attributes[その他_きっかけテキスト]"
+            form="cart"
+            style="display:none;"
+          >{{ cart.attributes["その他_きっかけテキスト"] }}</textarea>
+        </p>
+
+        {% comment %} <p class="cart-attribute__field">
           <input type="hidden" name="attributes[その他_きっかけ]" value="No" form="cart" >
           <input type="checkbox" name="attributes[その他_きっかけ]" value="Yes"{% if cart.attributes["その他_きっかけ"] == "Yes" %} checked{% endif %} form="cart" >
           <label for="trigger">その他</label>
-          </p>
-          <p class="cart-attribute__field">
-            <label></label>
-            <textarea id="trigger" name="attributes[その他_きっかけテキスト]" form="cart" >{{ cart.attributes["その他_きっかけテキスト]"] }}</textarea>
         </p>
+        <p class="cart-attribute__field">
+          <label></label>
+          <textarea id="trigger" name="attributes[その他_きっかけテキスト]" form="cart" >{{ cart.attributes["その他_きっかけテキスト"] }}</textarea>
+        </p> {% endcomment %}
+
         <p class="cart-attribute__field">
           <input type="hidden" name="attributes[回答しない_きっかけ]" value="No" form="cart" >
           <input type="checkbox" name="attributes[回答しない_きっかけ]" value="Yes"{% if cart.attributes["回答しない_きっかけ"] == "Yes" %} checked{% endif %} form="cart" >
@@ -537,15 +561,38 @@
           <input type="checkbox" name="attributes[手術後以外・補正_用途]" value="Yes"{% if cart.attributes["手術後以外・補正_用途"] == "Yes" %} checked{% endif %} form="cart" >
           <label>手術後以外・補正</label>
         </p>
+        <!-- ▼用途：その他 -->
         <p class="cart-attribute__field">
+          <input type="hidden" name="attributes[その他_用途]" value="No" form="cart">
+          <input
+            type="checkbox"
+            id="trigger_purpose"
+            name="attributes[その他_用途]"
+            value="Yes"
+            {% if cart.attributes["その他_用途"] == "Yes" %} checked{% endif %}
+            form="cart"
+          >
+          <label for="trigger_purpose">その他</label>
+        </p>
+        <p class="cart-attribute__field">
+          <textarea
+            id="textarea_purpose"
+            name="attributes[その他_用途テキスト]"
+            form="cart"
+            style="display:none;"
+            >{{ cart.attributes["その他_用途テキスト"] }}</textarea>
+        </p>
+
+        {% comment %} <p class="cart-attribute__field">
           <input type="hidden" name="attributes[その他_用途]" value="No" form="cart" >
           <input type="checkbox" name="attributes[その他_用途]" value="Yes"{% if cart.attributes["その他_用途"] == "Yes" %} checked{% endif %} form="cart">
           <label for="purpose" >その他</label>
-          </p>
+        </p>
           <p class="cart-attribute__field">
             <label></label>
-            <textarea id="purpose" name="attributes[その他_用途テキスト]" form="cart" >{{ cart.attributes["その他_用途テキスト]"] }}</textarea>
-        </p>
+            <textarea id="purpose" name="attributes[その他_用途テキスト]" form="cart" >{{ cart.attributes["その他_用途テキスト"] }}</textarea>
+        </p> {% endcomment %}
+
         <p class="cart-attribute__field">
           <input type="hidden" name="attributes[回答しない_用途]" value="No" form="cart" >
           <input type="checkbox" name="attributes[回答しない_用途]" value="Yes"{% if cart.attributes["回答しない_用途"] == "Yes" %} checked{% endif %} form="cart" >
@@ -555,7 +602,41 @@
     </div>
 </div>
 
-{% comment %} ここまで {% endcomment %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  // 2つをまとめて制御する関数
+  function bindCheckboxToTextarea(checkboxId, textareaId) {
+    const checkbox = document.getElementById(checkboxId);
+    const textarea = document.getElementById(textareaId);
+
+    if (!checkbox || !textarea) return;
+
+    // 初期状態（checkedなら表示）
+    textarea.style.display = checkbox.checked ? 'block' : 'none';
+
+    // 変更時の動作
+    checkbox.addEventListener('change', function() {
+      if (checkbox.checked) {
+        textarea.style.display = 'block';
+        textarea.focus();
+      } else {
+        textarea.style.display = 'none';
+        textarea.value = "";
+      }
+    });
+  }
+
+  // ▼きっかけ
+  bindCheckboxToTextarea("trigger_trigger", "textarea_trigger");
+
+  // ▼用途
+  bindCheckboxToTextarea("trigger_purpose", "textarea_purpose");
+
+});
+</script>
+
+<!-- ここまで -->
 
 {% schema %}
 {

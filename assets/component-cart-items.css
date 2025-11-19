@@ -247,7 +247,7 @@ cart-remove-button .icon-remove {
 }
 
 .cart-attr__items {
-  /* margin-top: 5px; */
+  margin-top: 10px;
 }
 
 .cart-attr__custom {
