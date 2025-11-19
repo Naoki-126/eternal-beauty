@@ -242,6 +242,10 @@ cart-remove-button .icon-remove {
   font-size: 16px;
 }
 
+.cart-attribute__field {
+  margin-block: 0;
+}
+
 .cart-attr__items {
   /* margin-top: 5px; */
 }
