@@ -233,11 +233,6 @@ cart-remove-button .icon-remove {
   gap: 16px;
 }
 
-.cart-attr__row
-.cart-attribute__field {
-  /* text-align: center; */
-}
-
 .cart-attr__label {
   font-size: 16px;
 }
