@@ -257,7 +257,8 @@ cart-remove-button .icon-remove {
 @media (max-width: 768px) {
   .cart-attr__row {
     grid-template-columns: 1fr;
-    padding: 0 16px;
+    padding: 0 16px 20px;
+    gap: 20px;
   }
 }
 

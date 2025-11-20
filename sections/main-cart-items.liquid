@@ -584,7 +584,6 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
-  /* ▼その他 → textarea 表示制御 */
   function bindCheckboxToTextarea(checkboxId, textareaId) {
     const checkbox = document.getElementById(checkboxId);
     const textarea = document.getElementById(textareaId);
@@ -600,8 +599,6 @@ document.addEventListener('DOMContentLoaded', function() {
   bindCheckboxToTextarea("trigger_trigger", "textarea_trigger");
   bindCheckboxToTextarea("trigger_purpose", "textarea_purpose");
 
-
-  /* ▼グループ必須チェック */
   const groups = document.querySelectorAll(".cart-attr__items");
 
   function validateGroups() {
@@ -617,7 +614,6 @@ document.addEventListener('DOMContentLoaded', function() {
     return true;
   }
 
-  /* ▼Shopify checkout を止める（複数セレクタ対応） */
   const checkoutButtons = document.querySelectorAll(`
     button[name="checkout"],
     [name="checkout"],
@@ -632,7 +628,6 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         e.stopPropagation();
 
-        // Shopify の遷移を確実に止める
         return false;
       }
     });
