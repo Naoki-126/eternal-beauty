@@ -457,22 +457,22 @@
 <!-- カスタマイズ -->
 
 <div class="cart-attr__rowArea">
-
+  <h2 class="cart-attr__ttl">よろしければご回答をお願いいたします。</h2>
   <div class="cart-attr__row">
     <p class="cart-attribute__field">
       <label class="cart-attr__label" >ご年齢</label><br>
-        <input required class="required" type="radio" name="attributes[ご年齢]" value="10代"{% if cart.attributes["ご年齢"] == "10代" %} checked{% endif %} form="cart" style="margin-top:16px;" > <span>10代</span><br>
-        <input required class="required" type="radio" name="attributes[ご年齢]" value="20代"{% if cart.attributes["ご年齢"] == "20代" %} checked{% endif %} form="cart" > <span>20代</span><br>
-        <input required class="required" type="radio" name="attributes[ご年齢]" value="30代"{% if cart.attributes["ご年齢"] == "30代" %} checked{% endif %} form="cart" > <span>30代</span><br>
-        <input required class="required" type="radio" name="attributes[ご年齢]" value="40代"{% if cart.attributes["ご年齢"] == "40代" %} checked{% endif %} form="cart" > <span>40代</span><br>
-        <input required class="required" type="radio" name="attributes[ご年齢]" value="50代"{% if cart.attributes["ご年齢"] == "50代" %} checked{% endif %} form="cart" > <span>50代</span><br>
-        <input required class="required" type="radio" name="attributes[ご年齢]" value="60代以降"{% if cart.attributes["ご年齢"] == "60代以降" %} checked{% endif %} form="cart" > <span>60代以降</span><br>
-        <input required class="required" type="radio" name="attributes[ご年齢]" value="回答しない"{% if cart.attributes["ご年齢"] == "回答しない" %} checked{% endif %} form="cart" > <span>回答しない</span><br>
+      <input type="radio" name="attributes[ご年齢]" value="10代"{% if cart.attributes["ご年齢"] == "10代" %} checked{% endif %} form="cart" style="margin-top:16px;" > <span>10代</span><br>
+      <input type="radio" name="attributes[ご年齢]" value="20代"{% if cart.attributes["ご年齢"] == "20代" %} checked{% endif %} form="cart" > <span>20代</span><br>
+      <input type="radio" name="attributes[ご年齢]" value="30代"{% if cart.attributes["ご年齢"] == "30代" %} checked{% endif %} form="cart" > <span>30代</span><br>
+      <input type="radio" name="attributes[ご年齢]" value="40代"{% if cart.attributes["ご年齢"] == "40代" %} checked{% endif %} form="cart" > <span>40代</span><br>
+      <input type="radio" name="attributes[ご年齢]" value="50代"{% if cart.attributes["ご年齢"] == "50代" %} checked{% endif %} form="cart" > <span>50代</span><br>
+      <input type="radio" name="attributes[ご年齢]" value="60代以降"{% if cart.attributes["ご年齢"] == "60代以降" %} checked{% endif %} form="cart" > <span>60代以降</span><br>
+      <input type="radio" name="attributes[ご年齢]" value="回答しない"{% if cart.attributes["ご年齢"] == "回答しない" %} checked{% endif %} form="cart" > <span>回答しない</span><br>
     </p>
 
     <div>
       <p class="cart-attribute__field">
-        <label class="cart-attr__label" >サイトを知ったきっかけ</label><br>
+        <label class="cart-attr__label" >サイトを知ったきっかけ<span>※複数回答可</span></label><br>
       </p>
       <div class="cart-attr__items">
         <p class="cart-attribute__field">
@@ -522,17 +522,17 @@
             style="display:none;"
           >{{ cart.attributes["その他_きっかけテキスト"] }}</textarea>
         </p>
-        <p class="cart-attribute__field">
+        {% comment %} <p class="cart-attribute__field">
           <input type="hidden" name="attributes[回答しない_きっかけ]" value="No" form="cart" >
           <input type="checkbox" name="attributes[回答しない_きっかけ]" value="Yes"{% if cart.attributes["回答しない_きっかけ"] == "Yes" %} checked{% endif %} form="cart" >
           <label>回答しない</label>
-        </p>
+        </p> {% endcomment %}
       </div>
     </div>
 
     <div>
       <p class="cart-attribute__field">
-        <label class="cart-attr__label" >使用用途・使用開始時期</label><br>
+        <label class="cart-attr__label" >使用用途・使用開始時期<span>※複数回答可</span></label><br>
       </p>
       <div class="cart-attr__items">
         <p class="cart-attribute__field">
@@ -571,13 +571,14 @@
             style="display:none;"
             >{{ cart.attributes["その他_用途テキスト"] }}</textarea>
         </p>
-        <p class="cart-attribute__field">
+        {% comment %} <p class="cart-attribute__field">
           <input type="hidden" name="attributes[回答しない_用途]" value="No" form="cart" >
           <input type="checkbox" name="attributes[回答しない_用途]" value="Yes"{% if cart.attributes["回答しない_用途"] == "Yes" %} checked{% endif %} form="cart" >
           <label>回答しない</label>
-        </p>
+        </p> {% endcomment %}
       </div>
     </div>
+  </div>
 
 </div>
 
@@ -598,40 +599,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   bindCheckboxToTextarea("trigger_trigger", "textarea_trigger");
   bindCheckboxToTextarea("trigger_purpose", "textarea_purpose");
-
-  const groups = document.querySelectorAll(".cart-attr__items");
-
-  function validateGroups() {
-    for (let group of groups) {
-      const checkboxes = group.querySelectorAll('input[type="checkbox"]');
-      let isChecked = [...checkboxes].some(cb => cb.checked);
-
-      if (!isChecked) {
-        alert("各項目について、1つ以上選択してください。");
-        return false;
-      }
-    }
-    return true;
-  }
-
-  const checkoutButtons = document.querySelectorAll(`
-    button[name="checkout"],
-    [name="checkout"],
-    .cart__checkout button,
-    form[action*="/checkout"] button,
-    .checkout-button
-  `);
-
-  checkoutButtons.forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      if (!validateGroups()) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        return false;
-      }
-    });
-  });
 
 });
 </script>
